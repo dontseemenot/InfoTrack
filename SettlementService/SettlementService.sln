@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SettlementService", "SettlementService.csproj", "{C2B90CEF-3C29-4C9F-A225-7A418EFD0E47}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SettlementService", "SettlementService.csproj", "{C2B90CEF-3C29-4C9F-A225-7A418EFD0E47}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SettlementServiceUnitTests", "..\SettlementServiceUnitTests\SettlementServiceUnitTests.csproj", "{70973F3F-8482-4D1C-870D-AC37D3132CAB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{C2B90CEF-3C29-4C9F-A225-7A418EFD0E47}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C2B90CEF-3C29-4C9F-A225-7A418EFD0E47}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C2B90CEF-3C29-4C9F-A225-7A418EFD0E47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70973F3F-8482-4D1C-870D-AC37D3132CAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70973F3F-8482-4D1C-870D-AC37D3132CAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70973F3F-8482-4D1C-870D-AC37D3132CAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70973F3F-8482-4D1C-870D-AC37D3132CAB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

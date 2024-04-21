@@ -5,10 +5,17 @@ namespace SettlementService.Repository
     public class BookingRepository : IBookingRepository
     {
         private static List<Booking> _bookings = new List<Booking>();
+        private readonly IGuidGenerator _guidGenerator;
+
+        public BookingRepository(IGuidGenerator guidGenerator)
+        {
+            _guidGenerator = guidGenerator;
+        }
 
         public Task<string?> AddBooking(string startTime, string name)
         {
-            DateTime newBookingStartTime = Helpers.Helpers.ConvertStringToTime(startTime);
+            DateTime newBookingStartTime = (DateTime)Helpers.Conversion.ConvertStringToTime(startTime)!;    // startTime already validated, should never be null
+
             DateTime newBookingEndTime = newBookingStartTime.AddMinutes(59);
 
             int numSimultaneousBookings = 0;
@@ -25,15 +32,17 @@ namespace SettlementService.Repository
             }
             if (HasExceededMaxBookings(numSimultaneousBookings)) return Task.FromResult<string?>(null);
 
+            Guid guid = _guidGenerator.GenerateGuid();
+
             Booking booking = new Booking()
             {
-                BookingId = Guid.NewGuid(),
+                BookingId = guid,
                 StartTime = newBookingStartTime,
                 EndTime = newBookingEndTime,
                 Name = name
             };
             _bookings.Add(booking);
-            return Task.FromResult<string?>(booking.BookingId.ToString());
+            return Task.FromResult<string?>(guid.ToString());
         }
 
         private static bool HasExceededMaxBookings(int num)

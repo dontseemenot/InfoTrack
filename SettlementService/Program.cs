@@ -1,3 +1,4 @@
+using SettlementService.Models;
 using SettlementService.Repository;
 using SettlementService.Services;
 using SettlementService.Validators;
@@ -10,6 +11,7 @@ builder.Services.AddControllers();
 builder.Services.AddScoped<IBookingService, BookingService>();
 builder.Services.AddScoped<IBookingRepository, BookingRepository>();
 builder.Services.AddScoped<IBookingValidator, BookingValidator>();
+builder.Services.AddScoped<IGuidGenerator, GuidGenerator>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

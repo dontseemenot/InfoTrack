@@ -28,7 +28,7 @@ namespace SettlementService.Services
             var guid = await _bookingRepository.AddBooking(input.bookingTime, input.name);
             if (String.IsNullOrEmpty(guid))
             {
-                return new ConflictObjectResult($"Booking time {input.bookingTime} is already reserved.");
+                return new ConflictObjectResult($"Booking time {input.bookingTime} is unavailable, please specify another time");
             }
             return new OkObjectResult(new BookingResponse { bookingId = guid });
         }
